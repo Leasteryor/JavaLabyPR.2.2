@@ -38,6 +38,7 @@ public class Main {
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
+        dog.takeForAWalk();
         dog.feed();
         dog.feed();
         dog.feed(0.5);
