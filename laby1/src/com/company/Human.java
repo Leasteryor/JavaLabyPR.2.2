@@ -9,7 +9,7 @@ public class Human {
         String firstName;
         String lastName;
         Animal pet;
-        Phone telefon;
+        Phone mobile;
         private String car;
         private Double salary;
 
@@ -63,6 +63,6 @@ public class Human {
         {
                 return "Imię: " + firstName + " Nazwisko: " + lastName +
                         "\nZwierzę: (" + pet + ") Samochód:( " + car + ") " +
-                        "\nPensja: " + salary + "Telefon: "+ telefon;
+                        "\nPensja: " + salary + "Telefon: "+ mobile;
         }
 }

@@ -22,7 +22,7 @@ public class Main {
 
         Human patryk =new Human("Patryk","Pietrzak");
         patryk.pet=dog;
-        patryk.telefon=xiaomi;
+        patryk.mobile=xiaomi;
 
 
 
