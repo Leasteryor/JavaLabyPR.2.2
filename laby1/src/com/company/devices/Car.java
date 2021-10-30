@@ -1,17 +1,20 @@
 package com.company.devices;
-import com.company.devices.Car;
-import com.company.devices.Phone;
-public class Car {
-    public String model;
-    public String producer;
+
+public class Car extends Device {
     public Double value;
-    public Integer year;
     public Double weight;
     public Integer doors;
 
-    void turnOn(){
+    public Car(Integer yearOfProduction, String model, String producer, Double value, Double weight, Integer doors) {
+        super(yearOfProduction,model,producer);
+        this.value = value;
+        this.weight = weight;
+        this.doors = doors;
+    }
+
+    public void turnOn(){
         System.out.println("Brum Brum ");
     }
 
-    public String showCar(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+year+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
+    public String showCar(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
 }

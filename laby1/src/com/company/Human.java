@@ -2,8 +2,8 @@ package com.company;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
-public class Human {
-
+public class Human extends Animal{
+        public final static String HUMAN_SPECIES = "Homo sapiens";
         private static final Double DEFAULT_SALARY = 1600.0;
 
         String firstName;
@@ -14,13 +14,14 @@ public class Human {
         private Double salary;
 
         Human(String firstName, String lastName) {
+                super(HUMAN_SPECIES);
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.salary = DEFAULT_SALARY;
         }
 
         public void setSalary(Double newSalary) {
-                if (newSalary >= 0) {
+                if (newSalary > 0) {
                         salary = newSalary;
                         System.out.println("Nowe dane zostały wysłane do systemu księgowego");
                         System.out.println("Należy odebrać aneks do umowy od pani Hani z kadr");

@@ -1,10 +1,11 @@
 package com.company;
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import com.company.devices.Device;
 public class Main {
 
     public static void main(String[] args) {
-        Phone xiaomi=new Phone("xiaomi","note4",8);
+        Phone xiaomi=new Phone(2014,"xiaomi","note4",8.1);
         xiaomi.os="xiaomi";
         Animal dog = new Animal("canis");
         dog.name = "Dino";
@@ -12,18 +13,12 @@ public class Main {
         dog.age = 4;
         dog.alive = true;
 
-        Car dodge =new Car();
-        dodge.model ="Dodge Challenger";
-        dodge.producer="Dodge";
-        dodge.weight = 1745.0;
-        dodge.doors =4;
-        dodge.value=1000.0;
-        dodge.year=2000;
-
+        Car dodge =new Car(2000,"Dodge Challenger","Dodge",1000.0,1745.0,4);
         Human patryk =new Human("Patryk","Pietrzak");
         patryk.pet=dog;
         patryk.mobile=xiaomi;
-
+        patryk.feed();
+        patryk.age=3;
 
 
         System.out.println("Zad1");

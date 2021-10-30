@@ -1,7 +1,7 @@
 package com.company;
 import com.company.devices.Car;
 import com.company.devices.Phone;
-public class Animal {
+public class Animal implements Saleable{
     private static final Double DEFAULT_ANIMAL_WEIGHT = 1.0;
     private static final Double DEFAULT_DOG_WEIGHT = 12.0;
     private static final Double DEFAULT_CAT_WEIGHT = 2.3;
@@ -53,5 +53,15 @@ public class Animal {
     public String toString()
     {
         return "Imię: " + name + " Waga: " + weight  +" Lata: " + age + " Czy zyje : "+ alive;
+    }
+
+    @Override
+    public void sale() {
+
+    }
+
+    @Override
+    public Double getPrice() {
+        return null;
     }
 }

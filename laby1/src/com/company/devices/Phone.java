@@ -1,18 +1,30 @@
 package com.company.devices;
-import com.company.devices.Car;
-import com.company.devices.Phone;
-public class Phone {
-    final String producer;
-    final String model;
-    final Integer screenSize;
+
+import com.company.Saleable;
+
+public class Phone extends Device implements Saleable {
+    final Double screenSize;
     public String os;
 
-    public Phone(String producer, String model, Integer screenSize) {
-        this.producer = producer;
-        this.model = model;
+    public Phone(Integer yearOfProduction, String producer, String model, Double screenSize) {
+        super(yearOfProduction,model,producer);
         this.screenSize = screenSize;
     }
+
     public String toString(){
-        return "Producer: "+ producer+"Model: "+model+"Przekatna ekranu: "+screenSize+"Cali"+"System Operacyjny: "+os;
+        return "Producer: "+ producer+" Model: "+model+" Rok wydania: " + yearOfProduction + " Rozdzialka: "+screenSize+"Cali"+" System Operacyjny: "+os;
+    }
+    public void turnOn(){
+        System.out.println("Klik ! Klik! ");
+    }
+
+    @Override
+    public void sale() {
+
+    }
+
+    @Override
+    public Double getPrice() {
+        return null;
     }
 }
