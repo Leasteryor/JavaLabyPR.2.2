@@ -62,7 +62,7 @@ public class Human {
         public String toString()
         {
                 return "Imię: " + firstName + " Nazwisko: " + lastName +
-                        " Zwierzę: (" + pet + ") Samochód:( " + car + ") " +
-                        "Pensja: " + salary + "Telefon: "+ telefon;
+                        "\nZwierzę: (" + pet + ") Samochód:( " + car + ") " +
+                        "\nPensja: " + salary + "Telefon: "+ telefon;
         }
 }

@@ -8,7 +8,7 @@ public class Main {
         xiaomi.os="xiaomi";
         Animal dog = new Animal("canis");
         dog.name = "Dino";
-        dog.weight = 3.0;
+        //dog.weight = 3.0;
         dog.age = 4;
         dog.alive = true;
 
@@ -20,7 +20,7 @@ public class Main {
         dodge.value=1000.0;
         dodge.year=2000;
 
-        Human patryk =new Human("Patryk","pietrzak");
+        Human patryk =new Human("Patryk","Pietrzak");
         patryk.pet=dog;
         patryk.telefon=xiaomi;
 
