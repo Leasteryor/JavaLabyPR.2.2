@@ -3,7 +3,7 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Saleable;
 
-import java.sql.SQLOutput;
+
 
 public class Phone extends Device implements Saleable {
     final Double screenSize;
@@ -41,4 +41,12 @@ public class Phone extends Device implements Saleable {
             System.out.println("Telefon "+ this.producer + " zostal sprzedany za "+ price);
         }
     }
+    public void installAnnApp(String nameApp){
+        nameApp = "Photos";
+        System.out.println("Nazwa aplikacji: "+ nameApp);
+    }
+    /*public void installAnnApp(String nameApp,){
+        nameApp = "Photos";
+        System.out.println("Nazwa aplikacji: "+ nameApp);
+    }*/
 }
