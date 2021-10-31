@@ -11,4 +11,5 @@ public abstract class Device {
         this.model = model;
     }
     abstract public void turnOn();
+
 }

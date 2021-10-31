@@ -60,8 +60,22 @@ public class Animal implements Saleable{
 
     }
 
-    @Override
-    public Double getPrice() {
-        return null;
+
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Proba sprzedania zwierzaka "+ this.species);
+        if(seller.pet != this){
+            System.out.println("Sprzedawca nie ma zwierzaka");
+        }else if (buyer.cash <price){
+            System.out.println("Soryy kupujacy nie ma kasy");
+        }else if(this.species == Human.HUMAN_SPECIES){
+            System.out.println("nie mozna sprzedawac ludzi");
+        }
+        else{
+            seller.cash +=price;
+            buyer.cash -= price;
+            seller.pet = null;
+            buyer.pet = this;
+            System.out.println("Zwierzak "+ this.species + " zostal sprzedany za "+ price);
+        }
     }
 }

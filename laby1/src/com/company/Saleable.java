@@ -2,6 +2,5 @@ package com.company;
 
 public interface Saleable {
     void sale();
-    Double getPrice();
-
+    void sell(Human seller,Human buyer,Double price);
 }
