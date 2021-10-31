@@ -1,15 +1,15 @@
 package com.company;
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
-import com.sun.org.apache.xerces.internal.impl.xs.models.XSCMUniOp;
 
-public class Human extends Animal{
+public class Human extends Animal {
         public final static String HUMAN_SPECIES = "Homo sapiens";
         private static final Double DEFAULT_SALARY = 1600.0;
         public Double cash;
         String firstName;
         String lastName;
-        Animal pet;
+        public Animal pet;
         public Phone mobile;
         public Car car;
         private Double salary;
@@ -39,12 +39,12 @@ public class Human extends Animal{
                 if(salary > vehicle.value)
                 {
                         System.out.println("Udało się kupić samochód za gotówkę!");
-                        String car = vehicle.showCar();
+                        String car = vehicle.toString();
                 }
                 else if(salary > (vehicle.value/12))
                 {
                         System.out.println("Udało się kupić samochód na kredyt!");
-                        String car = vehicle.showCar();
+                        String car = vehicle.toString();
                 }
                 else
                 {
@@ -70,5 +70,10 @@ public class Human extends Animal{
         }
         public void sell(Human seller,Human buyer,Double price){
                 System.out.println("Nie mozxna sprzedawac ludzi !!!");
+        }
+
+        @Override
+        public void feed(double foodWeight) {
+
         }
 }

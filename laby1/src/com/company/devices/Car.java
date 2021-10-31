@@ -9,7 +9,7 @@ public class Car extends Device implements Saleable{
     public Integer doors;
 
     public Car(Integer yearOfProduction, String model, String producer, Double value, Double weight, Integer doors) {
-        super(yearOfProduction,model,producer);
+        super(yearOfProduction,producer,model);
         this.value = value;
         this.weight = weight;
         this.doors = doors;
@@ -19,19 +19,9 @@ public class Car extends Device implements Saleable{
         System.out.println("Brum Brum ");
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "value=" + value +
-                ", weight=" + weight +
-                ", doors=" + doors +
-                ", yearOfProduction=" + yearOfProduction +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                '}';
-    }
 
-    public String showCar(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
+
+    public String toString(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
 
     @Override
     public void sale() {

@@ -1,13 +1,14 @@
 package com.company;
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
-import com.company.devices.Device;
+import com.company.creatures.Pet;
 public class Main {
 
     public static void main(String[] args) {
         Phone xiaomi=new Phone(2014,"xiaomi","note4",8.1);
         xiaomi.os="xiaomi";
-        Animal dog = new Animal("canis");
+        Pet dog = new Pet("canis");
         dog.name = "Dino";
         //dog.weight = 3.0;
         dog.age = 4;
@@ -21,7 +22,7 @@ public class Main {
         patryk.age=3;
         patryk.cash=2000.0;
         patryk.car=dodge;
-        Human Mariusz =new Human("Mariusz","Gryz");
+        /*Human Mariusz =new Human("Mariusz","Gryz");
         Mariusz.cash=2000.0;
         Human sister= new Human("Karolina","Gryz");
         sister.cash = 200.0;
@@ -55,8 +56,8 @@ public class Main {
         System.out.println("Pieniadze Patryk: "+patryk.cash);
         System.out.println("Peniadze Mariusza: "+ Mariusz.cash);
         patryk.pet= Mariusz;
-        patryk.pet.sell(patryk,sister,20.0);
-/*
+        patryk.pet.sell(patryk,sister,20.0);*/
+
         System.out.println("Zad1");
 
         Double weightBeforeBreakfast=dog.getWeight();
@@ -81,6 +82,6 @@ public class Main {
         System.out.println("Zad5");
         patryk.setCar(dodge);
         patryk.getCar();
-        System.out.println(patryk);*/
+        System.out.println(patryk);
 }
 }

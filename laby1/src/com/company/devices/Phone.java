@@ -10,7 +10,7 @@ public class Phone extends Device implements Saleable {
     public String os;
 
     public Phone(Integer yearOfProduction, String producer, String model, Double screenSize) {
-        super(yearOfProduction,model,producer);
+        super(yearOfProduction,producer,model);
         this.screenSize = screenSize;
     }
 
