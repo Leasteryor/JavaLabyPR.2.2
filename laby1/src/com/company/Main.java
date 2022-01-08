@@ -5,11 +5,12 @@ import com.company.devices.Electric;
 import com.company.devices.Phone;
 import com.company.creatures.Pet;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         Phone xiaomi=new Phone(2014,"xiaomi","note4",8.1);
         xiaomi.os="xiaomi";
         Pet dog = new Pet("canis");
@@ -29,7 +30,10 @@ public class Main {
         Phone samsung=new Phone(2020,"samsung","note4",7.2);
         samsung.installAnApp("Insta","14.2");
         samsung.installAnApp("youtube","23.4","https://www.youtube.com/");
+        URL url = new URL("HTTP","youtube.com",8080,"/file");
+        samsung.installAnApp(url);
         dodge.refuel();
+
         /*Human Mariusz =new Human("Mariusz","Gryz");
         Mariusz.cash=2000.0;
         Human sister= new Human("Karolina","Gryz");

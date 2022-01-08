@@ -13,7 +13,6 @@ public class Phone extends Device implements Saleable {
     final static String DEFAULT_SERVER_ADDRESS = "21.37.56.1337";
     final static String DEFAULT_PROTOCOL = "HTTPS";
     final static String DEFAULT_VERSION = "1.18.2";
-    final static String DEFAULT_APPLICATION = "Minecraft";
 
     public Phone(Integer yearOfProduction, String producer, String model, Double screenSize) {
         super(yearOfProduction,producer,model);
@@ -66,6 +65,7 @@ public class Phone extends Device implements Saleable {
         }
     }
     public void installAnApp(URL url) {
-        installAnApp(DEFAULT_APPLICATION);
+        installAnApp("twitter");
+        System.out.println(url.toString());
     }
 }
