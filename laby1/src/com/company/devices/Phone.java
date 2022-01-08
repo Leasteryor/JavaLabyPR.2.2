@@ -3,11 +3,17 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Saleable;
 
+import java.net.URL;
+import java.util.List;
 
 
 public class Phone extends Device implements Saleable {
     final Double screenSize;
     public String os;
+    final static String DEFAULT_SERVER_ADDRESS = "21.37.56.1337";
+    final static String DEFAULT_PROTOCOL = "HTTPS";
+    final static String DEFAULT_VERSION = "1.18.2";
+    final static String DEFAULT_APPLICATION = "Minecraft";
 
     public Phone(Integer yearOfProduction, String producer, String model, Double screenSize) {
         super(yearOfProduction,producer,model);
@@ -41,12 +47,25 @@ public class Phone extends Device implements Saleable {
             System.out.println("Telefon "+ this.producer + " zostal sprzedany za "+ price);
         }
     }
-    public void installAnnApp(String nameApp){
-        nameApp = "Photos";
-        System.out.println("Nazwa aplikacji: "+ nameApp);
+
+    public void installAnApp(String appName) {
+        installAnApp(appName, DEFAULT_VERSION);
     }
-    /*public void installAnnApp(String nameApp,){
-        nameApp = "Photos";
-        System.out.println("Nazwa aplikacji: "+ nameApp);
-    }*/
+
+    public void installAnApp(String appName, String appVersion) {
+        installAnApp(appName,appVersion,DEFAULT_SERVER_ADDRESS);
+    }
+
+    public void installAnApp(String appName, String appVersion, String serverAdres) {
+        System.out.println("zainstalowano na telefonie aplikacje " + appName + " w wersji " +appVersion + " na serverze " + serverAdres);
+    }
+
+    public void installAnApp(List<String> applicationsToInstall) {
+        for (String application: applicationsToInstall) {
+            installAnApp(application);
+        }
+    }
+    public void installAnApp(URL url) {
+        installAnApp(DEFAULT_APPLICATION);
+    }
 }

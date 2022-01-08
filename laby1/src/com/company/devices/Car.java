@@ -3,7 +3,7 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Saleable;
 
-public class Car extends Device implements Saleable{
+public abstract class Car extends Device implements Saleable{
     public Double value;
     public Double weight;
     public Integer doors;
@@ -42,4 +42,5 @@ public class Car extends Device implements Saleable{
             System.out.println("Samochod "+ this.producer + " zostal sprzedany za "+ price);
         }
     }
+    public abstract void refuel();
 }
