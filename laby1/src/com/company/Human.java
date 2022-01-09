@@ -108,8 +108,13 @@ public class Human extends Animal {
                 }
                 return false;
         }
-        public void removeCar(Car car){
-
+        public void removeCar(Car carToRemove) {
+                for (int i = 0 ; i< garage.length ; i++) {
+                        if(garage[i].equals(carToRemove)){
+                                garage[i] = null;
+                                return;
+                        }
+                }
         }
         public void addCar(Car car){
 

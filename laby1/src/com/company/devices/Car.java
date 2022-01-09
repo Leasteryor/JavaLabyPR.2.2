@@ -3,23 +3,44 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Saleable;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public abstract class Car extends Device implements Saleable{
     public Double value;
     public Double weight;
     public Integer doors;
-
-    public Car(Integer yearOfProduction, String model, String producer, Double value, Double weight, Integer doors) {
+    List<Human> owners;
+    public Car(Integer yearOfProduction, String model, String producer, Double value, Double weight, Integer doors,Human firstOwner) {
         super(yearOfProduction,producer,model);
         this.value = value;
         this.weight = weight;
         this.doors = doors;
+        this.owners = new LinkedList<Human>();
+        this.owners.add(firstOwner);
     }
 
     public void turnOn(){
         System.out.println("Brum Brum ");
     }
 
+    public boolean isLastOwner(Human human){
+        return owners.get(owners.size()-1).equals(human);
+    }
 
+    public boolean wasAnOwner(Human human){
+        return this.owners.contains(human);
+    }
+    public boolean doasASoldToB(Human a, Human b){
+        if (!wasAnOwner(a) || !wasAnOwner(b)){
+            return false;
+        }else{
+            if(this.owners.indexOf(b)-this.owners.indexOf(a)==1){
+                return true;
+            }
+            return false;
+        }
+    }
 
     public String toString(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
 
@@ -34,8 +55,9 @@ public abstract class Car extends Device implements Saleable{
             System.out.println("Sprzedawca nie ma samochodu");
         }else if(!buyer.hasFreeParkingLot()){
             System.out.println("Kupujacy nie ma miejsca na samochod");
-        }
-        else if (buyer.cash <price){
+        } else if(!this.isLastOwner(seller)) {
+            System.out.println("Sprzedajacy nie jest ostatnim wlascicielem auta");
+        }else if (buyer.cash <price){
             System.out.println("Soryy kupujacy nie ma kasy");
         }else{
             seller.cash +=price;
