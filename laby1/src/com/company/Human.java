@@ -3,15 +3,18 @@ import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
+import java.util.Arrays;
+
 public class Human extends Animal {
         public final static String HUMAN_SPECIES = "Homo sapiens";
+        private static final int DEFAULT_GARAGE_SIZE = 2;
         private static final Double DEFAULT_SALARY = 1600.0;
         public Double cash;
         String firstName;
         String lastName;
         public Animal pet;
         public Phone mobile;
-        public Car car;
+        public Car[] garage;
         private Double salary;
 
         Human(String firstName, String lastName) {
@@ -20,6 +23,15 @@ public class Human extends Animal {
                 this.lastName = lastName;
                 this.salary = DEFAULT_SALARY;
                 this.cash=-0.0;
+                this.garage = new Car[DEFAULT_GARAGE_SIZE];
+        }
+        Human(String firstName,String lastName, int garageSize) {
+                super(HUMAN_SPECIES);
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.salary = DEFAULT_SALARY;
+                this.cash=-0.0;
+                this.garage = new Car[garageSize];
         }
 
         public void setSalary(Double newSalary) {
@@ -34,17 +46,17 @@ public class Human extends Animal {
                         System.out.println("Ujemna wyplata!!");
                 }
         }
-        public void setCar(Car vehicle)
+        public void setCar(Car vehicle,Integer carPosition)
         {
                 if(salary > vehicle.value)
                 {
                         System.out.println("Udało się kupić samochód za gotówkę!");
-                        String car = vehicle.toString();
+                        this.garage[carPosition] = vehicle;
                 }
                 else if(salary > (vehicle.value/12))
                 {
                         System.out.println("Udało się kupić samochód na kredyt!");
-                        String car = vehicle.toString();
+                        this.garage[carPosition] = vehicle;
                 }
                 else
                 {
@@ -57,21 +69,51 @@ public class Human extends Animal {
                 System.out.println("Ostatnie pobieranie danych o wypłacie: 10.09.2021. Wartość: "+ salary+ "zl");
                 return this.salary;
         }
-        public void getCar()
+        public Car getCar(Integer carPosition)
         {
-                System.out.println(this.car);
+                return this.garage[carPosition];
+        }
+        public double calculateSumOfCarsValue() {
+                double sumOfValue = 0;
+                for (Car car : garage
+                ) {
+                        if (car != null)
+                                sumOfValue += car.value;
+                }
+                return sumOfValue;
         }
         //toString
         public String toString()
         {
                 return "Imię: " + firstName + " Nazwisko: " + lastName +
-                        "\nZwierzę: (" + pet + ") Samochód:( " + car + ") " +
+                        "\nZwierzę: (" + pet + ") Samochód:( " + Arrays.asList(garage) + ") " +
                         "\nPensja: " + salary + "Telefon: "+ mobile;
         }
         public void sell(Human seller,Human buyer,Double price){
                 System.out.println("Nie mozxna sprzedawac ludzi !!!");
         }
+        public boolean hasCar(Car newCar){
+                for(Car car : garage){
+                        if(car != null && car.equals(newCar)){
+                                return true;
+                        }
+                }
+                return false;
+        }
+        public boolean hasFreeParkingLot(){
+                for(int i = 0;i<this.garage.length;i++){
+                        if(garage[i]== null){
+                                return true;
+                        }
+                }
+                return false;
+        }
+        public void removeCar(Car car){
 
+        }
+        public void addCar(Car car){
+
+        }
         @Override
         public void feed(double foodWeight) {
 

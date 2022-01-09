@@ -26,7 +26,6 @@ public class Main {
         patryk.feed();
         patryk.age=3;
         patryk.cash=2000.0;
-        patryk.car=dodge;
         Phone samsung=new Phone(2020,"samsung","note4",7.2);
         samsung.installAnApp("Insta","14.2");
         samsung.installAnApp("youtube","23.4","https://www.youtube.com/");

@@ -65,7 +65,7 @@ public class Phone extends Device implements Saleable {
         }
     }
     public void installAnApp(URL url) {
-        installAnApp("twitter");
+        installAnApp("youtube");
         System.out.println(url.toString());
     }
 }
