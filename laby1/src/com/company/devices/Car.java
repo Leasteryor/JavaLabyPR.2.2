@@ -30,10 +30,10 @@ public abstract class Car extends Device implements Saleable{
     }
 
     public boolean wasAnOwner(Human human){
-        return !this.owners.contains(human);
+        return this.owners.contains(human);
     }
     public boolean doasASoldToB(Human a, Human b){
-        if (wasAnOwner(a) || wasAnOwner(b)){
+        if (!wasAnOwner(a) || !wasAnOwner(b)){
             return false;
         }else{
             if(this.owners.indexOf(b)-this.owners.indexOf(a)==1){
@@ -42,7 +42,9 @@ public abstract class Car extends Device implements Saleable{
             return false;
         }
     }
-
+    public void transationNumber(){
+        System.out.println("Liczba transakcji wynosi: "+ owners.size());
+    }
     public String toString(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
 
     @Override
@@ -65,6 +67,7 @@ public abstract class Car extends Device implements Saleable{
             buyer.cash -= price;
             seller.removeCar(this);
             buyer.addCar(this);
+            this.owners.add(buyer);
             System.out.println("Samochod "+ this.producer + " zostal sprzedany za "+ price);
         }
     }
