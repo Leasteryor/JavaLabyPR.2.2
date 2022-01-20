@@ -1,8 +1,6 @@
 package com.company;
 import com.company.creatures.Animal;
-import com.company.devices.Car;
-import com.company.devices.Electric;
-import com.company.devices.Phone;
+import com.company.devices.*;
 import com.company.creatures.Pet;
 
 import java.net.MalformedURLException;
@@ -18,20 +16,30 @@ public class Main {
         //dog.weight = 3.0;
         dog.age = 4;
         dog.alive = true;
-
-        Car dodge =new Electric(2000,"Dodge Challenger","Dodge",1000.0,1745.0,4);
-        Human patryk =new Human("Patryk","Pietrzak");
-        patryk.pet=dog;
+        Human ania=new Human("Ania","Kowalska",4);
+        Car dodge =new Diesel(2000,"Dodge Challenger","Dodge",2000.0,1745.0,4,ania);
+        ania.addCar(dodge);
+        ania.setCar(dodge,0);
+        ania.getCar(0);
+        Human dariusz =new Human("Dariusz","Pietrzak",4);
+        dariusz.cash=3000.0;
+        dodge.sell(ania,dariusz,2000.0);
+        Human patryk =new Human("Patryk","Pietrzak",4);
+        Car bmw = new Diesel(2010,"BMW e39","bmw",4000.0,1453.0,4,patryk);
+        patryk.addCar(bmw);
+        patryk.hasCar(bmw);
+        /*patryk.pet=dog;
         patryk.mobile=xiaomi;
         patryk.feed();
-        patryk.age=3;
-        patryk.cash=2000.0;
+        patryk.age=3;*/
+        patryk.cash=1000.0;
+        /*
         Phone samsung=new Phone(2020,"samsung","note4",7.2);
         samsung.installAnApp("Insta","14.2");
         samsung.installAnApp("youtube","23.4","https://www.youtube.com/");
         URL url = new URL("HTTP","youtube.com",8080,"/file");
         samsung.installAnApp(url);
-        dodge.refuel();
+        dodge.refuel();*/
 
         /*Human Mariusz =new Human("Mariusz","Gryz");
         Mariusz.cash=2000.0;

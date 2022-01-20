@@ -11,13 +11,14 @@ public abstract class Car extends Device implements Saleable{
     public Double weight;
     public Integer doors;
     List<Human> owners;
-    public Car(Integer yearOfProduction, String model, String producer, Double value, Double weight, Integer doors,Human firstOwner) {
+    public Car(Integer yearOfProduction, String model, String producer, Double value, Double weight, Integer doors,Human firstOwner ){
         super(yearOfProduction,producer,model);
         this.value = value;
         this.weight = weight;
         this.doors = doors;
-        this.owners = new LinkedList<Human>();
+        this.owners = new LinkedList<>();
         this.owners.add(firstOwner);
+        firstOwner.addCar(this);
     }
 
     public void turnOn(){
@@ -29,10 +30,10 @@ public abstract class Car extends Device implements Saleable{
     }
 
     public boolean wasAnOwner(Human human){
-        return this.owners.contains(human);
+        return !this.owners.contains(human);
     }
     public boolean doasASoldToB(Human a, Human b){
-        if (!wasAnOwner(a) || !wasAnOwner(b)){
+        if (wasAnOwner(a) || wasAnOwner(b)){
             return false;
         }else{
             if(this.owners.indexOf(b)-this.owners.indexOf(a)==1){
@@ -41,7 +42,20 @@ public abstract class Car extends Device implements Saleable{
             return false;
         }
     }
-
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || o instanceof Car) {
+            return false;
+        }
+        Car car = (Car) o;
+        return model == car.model &&
+                producer == car.producer &&
+                weight == car.weight &&
+                doors == car.doors &&
+                car.value == car.value;
+    }
     public String toString(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
 
     @Override

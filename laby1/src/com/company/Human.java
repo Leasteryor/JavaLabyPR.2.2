@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Human extends Animal {
         public final static String HUMAN_SPECIES = "Homo sapiens";
-        private static final int DEFAULT_GARAGE_SIZE = 2;
+        private static final int DEFAULT_GARAGE_SIZE = 4;
         private static final Double DEFAULT_SALARY = 1600.0;
         public Double cash;
         String firstName;
@@ -116,8 +116,14 @@ public class Human extends Animal {
                         }
                 }
         }
-        public void addCar(Car car){
-
+        public boolean addCar(Car car){
+                for (int i = 0; i <garage.length; i++) {
+                        if (garage[i]  == null) {
+                                garage[i] = car;
+                                return true;
+                        }
+                }
+                return false;
         }
         @Override
         public void feed(double foodWeight) {
