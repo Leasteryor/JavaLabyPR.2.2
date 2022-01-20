@@ -42,20 +42,7 @@ public abstract class Car extends Device implements Saleable{
             return false;
         }
     }
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || o instanceof Car) {
-            return false;
-        }
-        Car car = (Car) o;
-        return model == car.model &&
-                producer == car.producer &&
-                weight == car.weight &&
-                doors == car.doors &&
-                car.value == car.value;
-    }
+
     public String toString(){return "Marka: "+producer + " Model: "+model + " Rok produkcji: "+yearOfProduction+ " Waga: "+ weight+" Liczba drzwi: "+doors;}
 
     @Override
@@ -65,7 +52,7 @@ public abstract class Car extends Device implements Saleable{
 
     public void sell(Human seller, Human buyer, Double price) {
         System.out.println("Proba sprzedania samochodu "+ this.producer);
-        if(seller.hasCar(this)){
+        if(!seller.hasCar(this)){
             System.out.println("Sprzedawca nie ma samochodu");
         }else if(!buyer.hasFreeParkingLot()){
             System.out.println("Kupujacy nie ma miejsca na samochod");

@@ -22,12 +22,15 @@ public class Main {
         ania.setCar(dodge,0);
         ania.getCar(0);
         Human dariusz =new Human("Dariusz","Pietrzak",4);
-        dariusz.cash=3000.0;
+        dariusz.cash=5000.0;
         dodge.sell(ania,dariusz,2000.0);
         Human patryk =new Human("Patryk","Pietrzak",4);
         Car bmw = new Diesel(2010,"BMW e39","bmw",4000.0,1453.0,4,patryk);
         patryk.addCar(bmw);
         patryk.hasCar(bmw);
+        bmw.sell(patryk,dariusz,2000.0);
+        System.out.println("Suma wartosci wszystkich samochodow dariusza: "+ dariusz.calculateSumOfCarsValue());
+
         /*patryk.pet=dog;
         patryk.mobile=xiaomi;
         patryk.feed();

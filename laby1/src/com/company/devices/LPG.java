@@ -12,9 +12,6 @@ public class LPG extends Car{
         System.out.println("Tankuje samochod gazem");
     }
 
-    @Override
-    public void sell(Human seller, Human buyer, Double price) {
 
-    }
 }
 
