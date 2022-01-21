@@ -11,7 +11,32 @@ public class Main {
     public static void main(String[] args) throws MalformedURLException {
         Phone xiaomi=new Phone(2014,"xiaomi","note4",8.1);
         xiaomi.os="xiaomi";
-        Pet dog = new Pet("canis");
+        Human patryk =new Human("Patryk","Pietrzak",4);
+        patryk.setPhone(xiaomi);
+        patryk.cash=1000.0;
+        Application lidl = new Application("Lidl", 100, "1.3.2");
+        Application messenger = new Application("Messenger", 450, "2.2.0");
+        Application facebook = new Application("Facebook", 0, "3.0.0");
+        Application instagram = new Application("Instagram", 1000, "4.0.9");
+        Application snapchat = new Application("Snapchat", 200, "6.0.9");
+        xiaomi.installAppOnPhone(lidl);
+        xiaomi.installAppOnPhone(messenger);
+        xiaomi.installAppOnPhone(facebook);
+        xiaomi.installAppOnPhone(instagram);
+        xiaomi.installAppOnPhone(snapchat);
+
+        xiaomi.isAppInstalledOnPhone(lidl);
+        xiaomi.isAppInstalledOnPhone(messenger);
+        xiaomi.isAppInstalledOnPhone(facebook);
+        xiaomi.isAppInstalledOnPhone(instagram);
+        xiaomi.isAppInstalledOnPhone(snapchat);
+
+        xiaomi.getAllFreeAppOnPhone();
+        xiaomi.getAllAppNamesInAlphabetic();
+        xiaomi.getAppValue();
+        xiaomi.getAllAppPriceInOrderFromCheapestToExpensive();
+
+        /*Pet dog = new Pet("canis");
         dog.name = "Dino";
         //dog.weight = 3.0;
         dog.age = 4;
@@ -34,11 +59,12 @@ public class Main {
         System.out.println("Suma wartosci wszystkich samochodow dariusza: "+ dariusz.calculateSumOfCarsValue());
         System.out.println("Czy ania jest byla ostatnim wlascicielem dodge "+ dodge.isLastOwner(ania));
         dodge.transationNumber();
+*/
         /*patryk.pet=dog;
         patryk.mobile=xiaomi;
         patryk.feed();
-        patryk.age=3;*/
-        patryk.cash=1000.0;
+        patryk.age=3;*//*
+        patryk.cash=1000.0;*
         /*
         Phone samsung=new Phone(2020,"samsung","note4",7.2);
         samsung.installAnApp("Insta","14.2");

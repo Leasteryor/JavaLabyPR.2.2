@@ -82,6 +82,14 @@ public class Human extends Animal {
                 }
                 return sumOfValue;
         }
+        public Phone getPhone() {
+                return mobile;
+        }
+
+        public void setPhone(Phone phone) {
+                this.mobile = phone;
+                phone.phoneOwner = this;
+        }
         //toString
         public String toString()
         {
